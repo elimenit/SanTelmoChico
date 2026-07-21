@@ -1,0 +1,9 @@
+sqlmodel
+fastapi[standard]
+pwdlib[bcrypt]
+python-jose[cryptography]
+load-dotenv
+psycopg2-binary
+redis
+arq 
+aiosmtplib

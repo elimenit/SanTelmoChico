@@ -1,6 +1,7 @@
 # Backend
 **/*.env
 **/.venv/
+**/*.pyc
 # Frontend
 # Logs
 frontend/logs/
