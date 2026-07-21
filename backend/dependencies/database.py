@@ -9,7 +9,7 @@ from database.db_deliveries import DBDeliveries
 from database.db_products import DBProducts
 from database.db_reviews import DBReviews
 from sqlmodel import SQLModel
-from dependencies.dbsession import engine, create_database_postgresql_native
+from dependencies.dbsession import engine
 
 __database_users_instance = None
 __database_payments_instance = None
@@ -20,7 +20,6 @@ __database_reviews_instance = None
 
 def init_db():
 
-    create_database_postgresql_native()
     SQLModel.metadata.drop_all(engine)
     SQLModel.metadata.create_all(engine)
     global __database_users_instance

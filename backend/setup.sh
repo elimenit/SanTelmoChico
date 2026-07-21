@@ -27,7 +27,6 @@ create_file_pount_env() {
     echo "FIRST_SUPERUSER_PASSWORD='passwordSecure2026currenthard'" >> .env
     echo "SECRET_KEY='random_forest_de_auth_algoritm_cripthografy_machinel'" >> .env
     echo "DATABASE_URL='postgresql://postgres:password@localhost:5432/santelmochico'" >> .env
-    echo "NAME_DB='santelmochico'" >> .env
     echo "SERVER_REDIS='localhost'" >> .env
     echo "PORT_REDIS=6379" >> .env
     echo "SMTP_SERVER='smtp.gmail.com' " >> .env
@@ -52,7 +51,7 @@ create_virtual_enviroment() {
     # .venv activate 
     arq workers.email_worker.WorkerSettings & # Redis + ARG -> Cola de mensajeria
     echo "[+] Cola de mensajeria Funcionando"
-    fastapi dev app.py || fastapi run app.py
+    uvicorn app:app --host 0.0.0.0 #--port $PORT
 }
 main() {
     cd $DIR_BACKEND
